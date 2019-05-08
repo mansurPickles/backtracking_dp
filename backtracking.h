@@ -118,7 +118,7 @@ vector<int> subset_sum_dp(vector <int> universe, unsigned target) {
 
             else if(T[i-1][j].occupied == true){
                 T[i][j] =  T[i-1][j - x];
-                T[i][j].universePtr + x;
+                T[i][j].universePtr += (i-1);
                 T[i][j].prev = &T[i-1][j];
 
             }
