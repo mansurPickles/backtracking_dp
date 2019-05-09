@@ -67,8 +67,9 @@ vector<int> subset_sum_dp(const vector <int>& universe, unsigned target) {
     int n = universe.size();
     int t = target;
 
+    vector <vector < vector<int>>> T(n+1, vector<vector<int>> (t+1, vector<int> (0)));
+
     //array of vectors
-    vector<int> T[n+1][t+1];
     vector<int> empty = {0};
     vector<int> NONE = {-1};
 
@@ -79,30 +80,9 @@ vector<int> subset_sum_dp(const vector <int>& universe, unsigned target) {
         }
     }
 
-    cout << "PRINTING INIT ARRAY should be all -1\n\n";
-
-    for (int i=0; i<= n; i++){
-        for (int j=0; j<= t; j++){
-            cout << T[i][j].at(0) << "\t";
-        }
-        cout << endl;
-    }
-
-    cout << "outside of init array\n";
-
-
     // set first column to true if target/ sum = {0}
     for (int i = 0; i <= n; i++) {
         T[i][0] = empty;
-    }
-
-    cout << "PRINTING ARRAY AFTER EMPTY should be all -1\n\n";
-
-    for (int i=0; i<= n; i++){
-        for (int j=0; j<= t; j++){
-            cout << T[i][j].at(0) << "\t";
-        }
-        cout << endl;
     }
 
     //algorithm
